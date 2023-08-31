@@ -2,10 +2,10 @@
   "name": "node-express-app",
   "version": "1.0.0",
   "description": "Node express assignment",
-  "main": "server.js",
+  "main": "./backend/server.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch server.js"
+    "start": "node --watch ./backend/server.js"
   },
   "author": "Osman Butt",
   "license": "ISC",
