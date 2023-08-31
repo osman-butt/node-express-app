@@ -1,0 +1,16 @@
+{
+  "name": "node-express-app",
+  "version": "1.0.0",
+  "description": "Node express assignment",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --watch server.js"
+  },
+  "author": "Osman Butt",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
