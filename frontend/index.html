@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./assets/logo.svg" />
+    <title>Musicbase</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Work+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Signika&display=swap");
+    </style>
+  </head>
+  <body>
+    <section id="banner-container">
+      <img id="banner" src="./assets/banner3.svg" alt="" />
+    </section>
+    <button id="newartist-btn">
+      <!-- <i class="add-icon"><img src="./assets/add-logo.svg" alt="" /></i> ARTIST -->
+      <i class="fas fa-plus-circle"></i> ARTIST
+    </button>
+    <button id="showfav-btn">
+      <i class="fa fa-heart" style="color: #1db954"></i> SHOW FAVOURITES
+    </button>
+    <button id="showall-btn" class="hidden">
+      <i class="fa fa-music" style="color: #1db954"></i> SHOW ALL
+    </button>
+    <section id="data-txt-container">
+      <p>This app uses cookies!</p>
+      <!-- <section id="player">
+        <iframe
+          style="border-radius: 12px"
+          src="https://open.spotify.com/embed/artist/7dGJo4pcD2V6oG8kP0tJRR?utm_source=generator"
+          width="100%"
+          height="352"
+          frameborder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </section> -->
+    </section>
+    <section id="grid">
+      <!-- LIST OF ARTISTS GO HERE -->
+    </section>
+    <!--------- DIALOG CREATE --------->
+    <dialog id="dialog-create">
+      <h2>Add new artist</h2>
+      <form id="create-form">
+        <label for="create-question">Question:</label>
+        <input type="text" id="create-question" required />
+
+        <label for="create-answer">Answer:</label>
+        <input type="text" id="create-answer" required />
+
+        <label for="create-language">Language:</label>
+        <select
+          id="create-language"
+          name="language"
+          class="dropdown-menu"
+          required
+        >
+          <option value="CSS">CSS</option>
+          <option value="Javascript">Javascript</option>
+          <option value="HTML">HTML</option>
+          <!-- Add more languages here -->
+        </select>
+
+        <label for="create-topic">Topic:</label>
+        <input type="text" id="create-topic" required />
+
+        <label for="create-difficulty">Difficulty</label>
+        <select
+          id="create-difficulty"
+          name="create-difficulty "
+          class="dropdown-menu"
+          required
+        >
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+
+        <label for="create-image">Image:</label>
+        <input type="text" id="create-image" required />
+
+        <label for="create-link">Link:</label>
+        <input type="url" id="create-link" required />
+
+        <label for="create-code-snippet">Code Snippet:</label>
+        <!-- <input type="text" id="create-code-snippet" required /> -->
+        <textarea id="create-code-snippet" required></textarea>
+        <div>
+          <button type="button" id="create-flashcard-btn-cancel">Cancel</button>
+          <button type="submit" id="create-flashcard-btn-save">Save</button>
+        </div>
+      </form>
+    </dialog>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

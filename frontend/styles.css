@@ -1,0 +1,156 @@
+body {
+  /* font-family: "Work Sans", sans-serif; */
+  /* font-family: "DM Sans", sans-serif; */
+  font-family: "Signika", sans-serif;
+  margin: 0;
+  background-color: rgb(44, 44, 44);
+  color: white;
+}
+
+h1 {
+  font-family: "Oswald", sans-serif;
+}
+
+#banner-container {
+  width: 100%;
+  background-color: black;
+}
+
+#banner {
+  width: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#newartist-btn,
+#showfav-btn,
+#showall-btn {
+  /* background-color: #1db954; */
+  background-color: black;
+  color: #1db954;
+  padding: 0.5em 1em 0.3em 1em;
+  border-radius: 1em;
+  margin: 1em;
+  border: none;
+  font-family: "Signika", sans-serif;
+  transition: scale 0.1s;
+  font-size: medium;
+}
+
+#newartist-btn:hover,
+#showfav-btn:hover,
+#showall-btn:hover {
+  cursor: pointer;
+  scale: 1.02;
+  opacity: 0.7;
+}
+
+.add-icon {
+  vertical-align: middle;
+}
+
+#data-txt-container {
+  text-align: center;
+}
+
+/* ------GRID------ */
+#grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1em;
+  padding: 1em;
+  margin: auto;
+  justify-self: center;
+}
+
+.grid-item {
+  box-shadow: 1px 1px 8px var(--black-shadow);
+  padding: 1.5em;
+  background-color: white;
+  transition: 0.5s;
+  border-radius: 2em;
+  text-align: center;
+  background-color: rgb(29, 29, 29);
+  transition: opacity 1s;
+}
+
+.grid-item:hover {
+  box-shadow: 0 8px 16px 0 black;
+  opacity: 0.7;
+}
+
+.grid-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.grid-description {
+  font-weight: lighter;
+  color: white;
+  opacity: 0.5;
+}
+
+.fav-btn {
+  background-color: Transparent;
+  border: none;
+  font-size: 18px;
+}
+
+.fav-btn:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+#player {
+  margin: auto;
+  width: 500px;
+}
+
+/* ------DIALOG------ */
+
+dialog {
+  border: none;
+  border-radius: 1em;
+  padding: 1em;
+  background-color: rgb(0, 0, 0);
+  color: rgb(226, 226, 226);
+}
+
+#dialog-create form,
+#dialog-update form {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 1em;
+}
+
+#dialog-create input,
+#dialog-create textarea,
+#dialog-update input,
+#dialog-update textarea {
+  border: none;
+  box-sizing: border-box;
+  background-color: #444444;
+  color: white;
+}
+
+#dialog-create label,
+#dialog-update label {
+  font-weight: bold;
+}
+
+#dialog-create div,
+#dialog-update div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+select {
+  background-color: #444444;
+  color: white;
+}
