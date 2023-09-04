@@ -2,15 +2,23 @@
   "name": "node-express-app",
   "version": "1.0.0",
   "description": "Node express assignment",
-  "main": "./backend/server.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch ./backend/server.js"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm run serve:frontend",
+    "server": "node --watch ./backend/server.js",
+    "serve:frontend": "live-server ./frontend"
   },
   "author": "Osman Butt",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^8.2.1",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
   }
 }
