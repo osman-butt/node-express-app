@@ -25,7 +25,8 @@ h1 {
 
 #newartist-btn,
 #showfav-btn,
-#showall-btn {
+#showall-btn,
+#search-btn {
   /* background-color: #1db954; */
   background-color: black;
   color: #1db954;
@@ -40,7 +41,8 @@ h1 {
 
 #newartist-btn:hover,
 #showfav-btn:hover,
-#showall-btn:hover {
+#showall-btn:hover,
+#search-btn:hover {
   cursor: pointer;
   scale: 1.02;
   opacity: 0.7;
@@ -153,4 +155,28 @@ dialog {
 select {
   background-color: #444444;
   color: white;
+}
+
+input[type="search"],
+select {
+  border-radius: 1em;
+  border: none;
+  padding: 0.5em;
+  background-color: #444444;
+  outline: none;
+  color: white;
+}
+
+/* ------Animations------ */
+@keyframes zoom_effect {
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.zoom_effect {
+  animation: zoom_effect 0.8s;
 }

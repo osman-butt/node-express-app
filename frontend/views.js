@@ -2,8 +2,9 @@ import {
   getArtists,
   getFavouriteArtists,
   getFavourites,
+  getSearchArtists,
+  getSearchFavArtists,
 } from "./rest-services.js";
-import { addToFavourites, removeFromFavourites } from "./rest-services.js";
 
 import {
   showAllBtn,
@@ -141,4 +142,54 @@ async function showFavArtist(artist) {
     .addEventListener("click", () => toggleFavArtists(article));
 }
 
-export { updateArtistsGrid, openCreateDialog, updateFavouriteArtistsGrid };
+async function searchArtists() {
+  const isShowAll =
+    document.querySelector("#showall-btn").classList.toString() === "hidden";
+  const searchString = document.querySelector("#input-search").value;
+  const searchProperty = document.querySelector("#search-prop").value;
+  document.querySelector("#input-search").value = "";
+  if (isShowAll) {
+    if (searchString !== "") {
+      const searchArtists = await getSearchArtists(
+        searchProperty,
+        searchString
+      );
+      const favourites = await getFavourites();
+      console.log(favourites);
+      const favList = favourites[0].favouritesList;
+      const listOfArtists = searchArtists.map(a => ({
+        ...a,
+        isFavourite: favList.includes(a.id),
+      }));
+      showArtists(listOfArtists);
+    } else {
+      updateArtistsGrid();
+    }
+  } else {
+    if (searchString !== "") {
+      const searchArtists = await getSearchFavArtists(
+        searchProperty,
+        searchString
+      );
+
+      const listOfArtists = searchArtists.map(a => ({
+        ...a,
+        isFavourite: true,
+      }));
+      showFavArtists(listOfArtists);
+    } else {
+      updateFavouriteArtistsGrid();
+    }
+  }
+}
+
+function getViewType() {
+  document.querySelector("#showall-btn").classList.toString();
+}
+
+export {
+  updateArtistsGrid,
+  openCreateDialog,
+  updateFavouriteArtistsGrid,
+  searchArtists,
+};

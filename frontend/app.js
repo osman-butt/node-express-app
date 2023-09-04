@@ -2,6 +2,7 @@ import {
   updateArtistsGrid,
   openCreateDialog,
   updateFavouriteArtistsGrid,
+  searchArtists,
 } from "./views.js";
 
 window.addEventListener("load", initApp);
@@ -14,6 +15,9 @@ async function initApp() {
   document
     .querySelector("#showfav-btn")
     .addEventListener("click", updateFavouriteArtistsGrid);
+  document
+    .querySelector("#search-btn")
+    .addEventListener("click", searchArtists);
   document
     .querySelector("#showall-btn")
     .addEventListener("click", updateArtistsGrid);

@@ -44,10 +44,34 @@ async function removeFromFavourites(id) {
   });
 }
 
+async function getSearchArtists(searchProperty, searchString) {
+  const response = await fetch(
+    `${endpoint}/artists/${searchProperty}/${searchString}`,
+    {
+      credentials: "include",
+    }
+  );
+  const searchedArtists = await response.json();
+  return searchedArtists;
+}
+
+async function getSearchFavArtists(searchProperty, searchString) {
+  const response = await fetch(
+    `${endpoint}/favouriteartists/${searchProperty}/${searchString}`,
+    {
+      credentials: "include",
+    }
+  );
+  const searchedArtists = await response.json();
+  return searchedArtists;
+}
+
 export {
   getArtists,
   getFavouriteArtists,
   getFavourites,
   addToFavourites,
   removeFromFavourites,
+  getSearchArtists,
+  getSearchFavArtists,
 };

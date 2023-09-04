@@ -21,9 +21,9 @@ async function toggleFav(article) {
     article.querySelector(".fa-heart").classList.remove("far");
     article.querySelector(".fa-heart").classList.add("fa");
     article.querySelector(".fa-heart").offsetHeight;
+    zoomAnimation(article);
     await addToFavourites(id);
   } else {
-    // article.querySelector(".fa").classList.toggle("far");
     article.querySelector(".fa-heart").classList.remove("fa");
     article.querySelector(".fa-heart").classList.add("far");
     article.querySelector(".fa-heart").offsetHeight;
@@ -47,6 +47,24 @@ async function toggleFavArtists(article) {
     await removeFromFavourites(id);
     updateFavouriteArtistsGrid();
   }
+}
+
+// Add to fav zoom animation
+function zoomAnimation(article) {
+  article
+    .querySelector("button")
+    .querySelector("i")
+    .classList.add("zoom_effect");
+  article
+    .querySelector("button")
+    .querySelector("i")
+    .addEventListener("animationend", () => {
+      article
+        .querySelector("button")
+        .querySelector("i")
+        .classList.remove("zoom_effect");
+      article.querySelector("button").querySelector("i").offsetHeight;
+    });
 }
 
 export { showAllBtn, showFavBtn, toggleFav, toggleFavArtists };
