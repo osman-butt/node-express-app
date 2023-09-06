@@ -17,7 +17,7 @@ h1 {
 }
 
 #banner {
-  width: 40%;
+  width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -48,6 +48,24 @@ h1 {
   opacity: 0.7;
 }
 
+.buttons {
+  background-color: black;
+  color: #1db954;
+  padding: 0.5em 1em 0.3em 1em;
+  border-radius: 1em;
+  margin: 1em;
+  border: none;
+  font-family: "Signika", sans-serif;
+  transition: scale 0.1s;
+  font-size: medium;
+}
+
+.buttons:hover {
+  cursor: pointer;
+  scale: 1.02;
+  opacity: 0.7;
+}
+
 .add-icon {
   vertical-align: middle;
 }
@@ -59,7 +77,8 @@ h1 {
 /* ------GRID------ */
 #grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-columns: 1fr; */
+  grid-template-columns: 1fr;
   gap: 1em;
   padding: 1em;
   margin: auto;
@@ -83,9 +102,11 @@ h1 {
 }
 
 .grid-img {
+  border-radius: 1em;
   width: 200px;
   height: 200px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .grid-description {
@@ -113,21 +134,79 @@ h1 {
   width: 500px;
 }
 
+/* ------CRUD dialog Grid------ */
+#dialog-read {
+  margin: auto;
+}
+
+#dialog-grid {
+  display: grid;
+  grid-template-columns: 20em 20em;
+  gap: 1em;
+  padding: 1em;
+  margin: auto;
+  justify-self: center;
+}
+
+#artist-image {
+  border-radius: 1em;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+#close-btn {
+  background: none;
+  border: none;
+  color: #1db954;
+}
+
+#close-btn:hover {
+  scale: 1.05;
+  cursor: pointer;
+}
+
+#buttons-artist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10em;
+  padding: 1em;
+  margin: auto;
+  justify-self: center;
+}
+
+#delete-artist,
+#delete-btn-submit {
+  background-color: red;
+  color: white;
+  /* background-color: white;
+  color: #1db954; */
+}
+
+#dialog-delete {
+  width: 30em;
+}
+
 /* ------DIALOG------ */
 
 dialog {
   border: none;
   border-radius: 1em;
   padding: 1em;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(34, 34, 34);
   color: rgb(226, 226, 226);
+}
+
+dialog::backdrop {
+  background: rgba(40, 40, 40, 0.7);
 }
 
 #dialog-create form,
 #dialog-update form {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 2fr;
   padding: 1em;
+  gap: 1em;
 }
 
 #dialog-create input,
@@ -136,13 +215,16 @@ dialog {
 #dialog-update textarea {
   border: none;
   box-sizing: border-box;
-  background-color: #444444;
-  color: white;
+  background-color: black;
+  color: rgb(252, 252, 252);
+  border-radius: 1em;
 }
 
 #dialog-create label,
 #dialog-update label {
   font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
 }
 
 #dialog-create div,
@@ -153,8 +235,8 @@ dialog {
 }
 
 select {
-  background-color: #444444;
-  color: white;
+  background-color: black;
+  color: rgb(252, 252, 252);
 }
 
 input[type="search"],
@@ -162,9 +244,26 @@ select {
   border-radius: 1em;
   border: none;
   padding: 0.5em;
-  background-color: #444444;
+  background-color: black;
+  color: rgb(252, 252, 252);
   outline: none;
+}
+
+#create-artist-btn-cancel,
+#update-artist-btn-cancel {
+  background-color: red;
   color: white;
+  width: 1fr;
+}
+#create-artist-btn-save {
+  background-color: rgb(0, 0, 0);
+  width: 1fr;
+}
+
+#create-buttons-container,
+#update-buttons-container {
+  grid-column: 1 / span 2;
+  margin: 0 auto;
 }
 
 /* ------Animations------ */
@@ -179,4 +278,54 @@ select {
 
 .zoom_effect {
   animation: zoom_effect 0.8s;
+}
+
+/* -------- RESPONSIVE -------- */
+@media (min-width: 600px) {
+  #grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  dialog {
+    width: 80vw;
+  }
+  #banner {
+    width: 80%;
+  }
+}
+
+@media (min-width: 992px) {
+  #grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #banner {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  #grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  dialog {
+    width: 50vw;
+  }
+  #banner {
+    width: 40%;
+  }
+}
+@media (min-width: 1250px) {
+  #data-interaction-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  dialog {
+    width: 40vw;
+  }
+  #banner {
+    width: 35%;
+  }
+}
+@media (min-width: 1500px) {
+  #grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
 }
