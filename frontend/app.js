@@ -22,4 +22,9 @@ async function initApp() {
     .querySelector("#showall-btn")
     .addEventListener("click", updateArtistsGrid);
   updateArtistsGrid();
+  // promptCookiesDialog();
 }
+
+// function promptCookiesDialog() {
+//   document.querySelector("#cookies-dialog").showModal();
+// }
