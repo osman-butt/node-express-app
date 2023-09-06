@@ -8,6 +8,34 @@ async function getArtists() {
   return artists;
 }
 
+async function deleteArtist(id) {
+  const response = await fetch(`${endpoint}/artists/${id}`, {
+    method: "DELETE",
+    credentials: "include",
+  });
+  if (response.ok) {
+    console.log("deleteArtist status " + response.status);
+  } else {
+    console.log(response.status, response.statusText);
+  }
+}
+
+async function updateArtist(artist) {
+  const response = await fetch(`${endpoint}/artists/${artist.id}`, {
+    method: "PUT",
+    credentials: "include",
+    body: JSON.stringify(artist),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (response.ok) {
+    console.log("Artist updated with response " + response.status);
+  } else {
+    console.log(response.status, response.statusText);
+  }
+}
+
 async function getFavouriteArtists() {
   const response = await fetch(`${endpoint}/favouriteartists`, {
     credentials: "include",
@@ -66,12 +94,35 @@ async function getSearchFavArtists(searchProperty, searchString) {
   return searchedArtists;
 }
 
+async function createArtists(artist) {
+  console.log(JSON.stringify(artist));
+  const response = await fetch(`${endpoint}/artists`, {
+    method: "POST",
+    body: JSON.stringify(artist),
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (response.ok) {
+    console.log("Artists added to library");
+  } else {
+    console.log(response.status, response.statusText);
+    console.log(
+      `Unable to create item in database - ${response.status}: ${response.statusText}`
+    );
+  }
+}
+
 export {
   getArtists,
+  deleteArtist,
   getFavouriteArtists,
   getFavourites,
   addToFavourites,
   removeFromFavourites,
   getSearchArtists,
   getSearchFavArtists,
+  createArtists,
+  updateArtist,
 };

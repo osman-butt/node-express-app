@@ -1,9 +1,12 @@
 import {
   getArtists,
+  deleteArtist,
   getFavouriteArtists,
   getFavourites,
   getSearchArtists,
   getSearchFavArtists,
+  createArtists,
+  updateArtist,
 } from "./rest-services.js";
 
 import {
@@ -14,11 +17,11 @@ import {
 } from "./helpers.js";
 
 async function updateArtistsGrid() {
-  console.log("---updateArtistsGrid---");
+  // console.log("---updateArtistsGrid---");
   showFavBtn();
   const artists = await getArtists();
   const favourites = await getFavourites();
-  console.log(favourites);
+  // console.log(favourites);
   const favList = favourites[0].favouritesList;
   const listOfArtists = artists.map(a => ({
     ...a,
@@ -28,13 +31,13 @@ async function updateArtistsGrid() {
 }
 
 function showArtists(listOfArtists) {
-  console.log("---showArtists()---");
-  document.querySelector("#grid").innerHTML = ""; // reset the content of section#posts
+  // console.log("---showArtists()---");
+  document.querySelector("#grid").innerHTML = "";
   listOfArtists.forEach(showArtist);
 }
 
 async function showArtist(artist) {
-  console.log("---showArtist()---");
+  // console.log("---showArtist()---");
   const html = /*html*/ `
       <article class="grid-item">
         <img
@@ -49,8 +52,12 @@ async function showArtist(artist) {
   `;
   document.querySelector("#grid").insertAdjacentHTML("beforeend", html);
 
+  document
+    .querySelector("#grid article:last-child img")
+    .addEventListener("click", () => showReadDialog(artist));
+
   const article = document.querySelector("#grid article:last-child");
-  console.log(article);
+  // console.log(article);
   if (artist.isFavourite) {
     const btn =
       /*html*/
@@ -72,19 +79,176 @@ async function showArtist(artist) {
     .addEventListener("click", () => toggleFav(article));
 }
 
+function showReadDialog(artist) {
+  console.log("---showReadDialog()---");
+  document.querySelector("#artist-name").textContent = artist.name;
+  document.querySelector("#artist-image").src = artist.image;
+  document.querySelector("#artist-shortDescription").textContent =
+    artist.shortDescription;
+  document.querySelector("#artist-birthdate").textContent =
+    "Date of birth: " + artist.birthdate;
+  document.querySelector("#artist-activeSince").textContent =
+    "Active since: " + artist.activeSince;
+  document.querySelector("#artist-genres").textContent =
+    "Genres: " + artist.genres.toString().replace(",", ", ");
+  document.querySelector("#artist-labels").textContent =
+    "Labels: " + artist.labels.toString().replace(",", ", ");
+  document.querySelector("#artist-website").textContent =
+    "Website: " + artist.website;
+  if (artist.spotifyLink.includes("http")) {
+    document.querySelector("#spotify-link").offsetHeight;
+    document.querySelector("#spotify-link").classList.remove("hidden");
+    document.querySelector("#spotify-link").src = artist.spotifyLink;
+  } else {
+    document.querySelector("#spotify-link").offsetHeight;
+    document.querySelector("#spotify-link").classList.add("hidden");
+  }
+
+  console.log(
+    document.querySelector(
+      ".EmbedAudioWidget_metadataAndPlayerControlsContainer__hAT6m"
+    )
+  );
+
+  document.querySelector("#dialog-read").showModal();
+
+  document.querySelector("#update-artist").setAttribute("data-id", artist.id);
+  document.querySelector("#delete-artist").setAttribute("data-id", artist.id);
+
+  document
+    .querySelector("#delete-artist")
+    .addEventListener("click", deleteArtistDialog);
+
+  document
+    .querySelector("#update-artist")
+    .addEventListener("click", updateArtistPrompt);
+
+  document.querySelector("#update-name").value = artist.name;
+  document.querySelector("#update-dob").value = artist.birthdate;
+  document.querySelector("#update-active").value = artist.activeSince;
+  document.querySelector("#update-genres").value = artist.genres;
+  document.querySelector("#update-labels").value = artist.labels;
+  document.querySelector("#update-website").value = artist.website;
+  document.querySelector("#update-image").value = artist.image;
+  document.querySelector("#update-spotify").value = artist.spotifyLink;
+  document.querySelector("#update-description").value = artist.shortDescription;
+}
+
+function updateArtistPrompt(event) {
+  event.preventDefault();
+  document.querySelector("#dialog-update").showModal();
+  console.log("UPDATE ARTIST CLICKED");
+  const id = document.querySelector("#update-artist").getAttribute("data-id");
+  console.log(id);
+  document
+    .querySelector("#update-artist-btn-cancel")
+    .addEventListener("click", closeUpdateDialog);
+  document
+    .querySelector("#dialog-update")
+    .addEventListener("submit", updateArtistClicked);
+}
+
+async function updateArtistClicked(event) {
+  event.preventDefault();
+  const id = document.querySelector("#update-artist").getAttribute("data-id");
+  const updatedArtist = {
+    id: id,
+    name: document.querySelector("#update-name").value,
+    birthdate: document.querySelector("#update-dob").value,
+    activeSince: document.querySelector("#update-active").value,
+    genres: document.querySelector("#update-genres").value.split(","),
+    labels: document.querySelector("#update-labels").value.split(","),
+    website: document.querySelector("#update-website").value,
+    image: document.querySelector("#update-image").value,
+    spotifyLink: document.querySelector("#update-spotify").value,
+    shortDescription: document.querySelector("#update-description").value,
+  };
+  console.log(updatedArtist);
+  console.log(id);
+  await updateArtist(updatedArtist);
+  document.querySelector("#dialog-update").close();
+  document.querySelector("#dialog-read").close();
+  if (document.querySelector("#showall-btn").classList.value === "hidden") {
+    updateArtistsGrid();
+  } else {
+    updateFavouriteArtistsGrid();
+  }
+}
+
+function closeUpdateDialog() {
+  document.querySelector("#dialog-update").close();
+}
+
+function deleteArtistDialog(event) {
+  document.querySelector("#dialog-delete").showModal();
+  document
+    .querySelector("#delete-btn-cancel")
+    .addEventListener("click", closeDeleteDialog);
+  document
+    .querySelector("#dialog-delete")
+    .addEventListener("submit", deleteArtistClicked);
+}
+async function deleteArtistClicked(event) {
+  event.preventDefault();
+  const id = document.querySelector("#update-artist").getAttribute("data-id");
+  console.log("DELETE DIALOG=", id);
+  await deleteArtist(id);
+  document.querySelector("#dialog-read").close();
+  document.querySelector("#dialog-delete").close();
+  if (document.querySelector("#showall-btn").classList.value === "hidden") {
+    updateArtistsGrid();
+  } else {
+    updateFavouriteArtistsGrid();
+  }
+}
+
+function closeDeleteDialog() {
+  document.querySelector("#dialog-delete").close();
+}
+
 function openCreateDialog() {
   console.log("CREATE NEW ARTIST CLICKED");
   // Reset input
-  document.querySelector("#create-question").value = "";
-  document.querySelector("#create-answer").value = "";
-  document.querySelector("#create-language").value = "";
-  document.querySelector("#create-topic").value = "";
-  document.querySelector("#create-difficulty").value = "";
+  document.querySelector("#create-name").value = "";
+  document.querySelector("#create-dob").value = "";
+  document.querySelector("#create-active").value = "";
+  document.querySelector("#create-genres").value = "";
+  document.querySelector("#create-labels").value = "";
+  document.querySelector("#create-website").value = "";
   document.querySelector("#create-image").value = "";
-  document.querySelector("#create-link").value = "";
-  document.querySelector("#create-code-snippet").value = "";
+  document.querySelector("#create-spotify").value = "";
+  document.querySelector("#create-description").value = "";
   // open dialog
   document.getElementById("dialog-create").showModal();
+  document
+    .querySelector("#create-artist-btn-cancel")
+    .addEventListener("click", closeDialog);
+  document
+    .querySelector("#dialog-create")
+    .addEventListener("submit", createArtistsClicked);
+}
+
+function closeDialog() {
+  document.getElementById("dialog-create").close();
+}
+
+async function createArtistsClicked(event) {
+  event.preventDefault();
+  console.log("createArtistsClicked");
+  const newArtist = {
+    name: document.querySelector("#create-name").value,
+    birthdate: document.querySelector("#create-dob").value,
+    activeSince: document.querySelector("#create-active").value,
+    genres: document.querySelector("#create-genres").value.split(","),
+    labels: document.querySelector("#create-labels").value.split(","),
+    website: document.querySelector("#create-website").value,
+    image: document.querySelector("#create-image").value,
+    shortDescription: document.querySelector("#create-description").value,
+    spotifyLink: document.querySelector("#create-spotify").value,
+  };
+  await createArtists(newArtist);
+  document.getElementById("dialog-create").close();
+  updateArtistsGrid();
 }
 
 async function updateFavouriteArtistsGrid() {
@@ -136,6 +300,9 @@ async function showFavArtist(artist) {
       </button>`;
     article.insertAdjacentHTML("beforeend", btn);
   }
+  document
+    .querySelector("#grid article:last-child img")
+    .addEventListener("click", () => showReadDialog(artist));
   article.setAttribute("data-id", artist.id);
   article
     .querySelector(".fav-btn")
