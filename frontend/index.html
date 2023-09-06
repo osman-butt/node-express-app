@@ -32,6 +32,19 @@
     <button id="showall-btn" class="hidden">
       <i class="fa fa-music" style="color: #1db954"></i> SHOW ALL
     </button>
+    <select name="filter" id="filter">
+      <option value="" selected>--Filter by genre--</option>
+      <option value="label">Pop</option>
+      <option value="label">Rock</option>
+      <option value="label">Rap</option>
+      <option value="label">R&B</option>
+      <option value="label">Hip-Hop</option>
+    </select>
+    <select name="sort" id="sort">
+      <option value="" selected>--Sort by--</option>
+      <option value="-age">Age desc</option>
+      <option value="+age">Age asc</option>
+    </select>
     <section id="data-txt-container">
       <!--------- SEARCH --------->
       <div id="search-container">
@@ -45,7 +58,7 @@
           <i class="fas fa-search" style="color: #1db954"></i>
         </button>
       </div>
-      <p>This app uses cookies!</p>
+      <!-- <p>This app uses cookies!</p> -->
       <!-- <section id="player">
         <iframe
           style="border-radius: 12px"
@@ -59,62 +72,155 @@
         ></iframe>
       </section> -->
     </section>
+    <dialog id="cookies-dialog" style="text-align: center">
+      <h3>Cookies</h3>
+      <p>This site uses cookies to track your favourite aritsts.</p>
+      <form method="dialog">
+        <button class="buttons" id="close-btn">OK</button>
+      </form>
+    </dialog>
     <section id="grid">
       <!-- LIST OF ARTISTS GO HERE -->
     </section>
     <!--------- DIALOG CREATE --------->
     <dialog id="dialog-create">
-      <h2>Add new artist</h2>
+      <h2 style="text-align: center;">Add new artist</h2>
       <form id="create-form">
-        <label for="create-question">Question:</label>
-        <input type="text" id="create-question" required />
+        <label for="create-name">Artist name:</label>
+        <input type="text" id="create-name" required />
 
-        <label for="create-answer">Answer:</label>
-        <input type="text" id="create-answer" required />
+        <label for="create-dob">Date of birth:</label>
+        <input type="text" id="create-dob" required />
 
-        <label for="create-language">Language:</label>
-        <select
-          id="create-language"
-          name="language"
-          class="dropdown-menu"
-          required
-        >
-          <option value="CSS">CSS</option>
-          <option value="Javascript">Javascript</option>
-          <option value="HTML">HTML</option>
-          <!-- Add more languages here -->
-        </select>
+        <label for="create-active">Active since:</label>
+        <input type="text" id="create-active" required />
 
-        <label for="create-topic">Topic:</label>
-        <input type="text" id="create-topic" required />
+        <label for="create-genres">Genres:</label>
+        <input type="text" id="create-genres" required />
 
-        <label for="create-difficulty">Difficulty</label>
-        <select
-          id="create-difficulty"
-          name="create-difficulty "
-          class="dropdown-menu"
-          required
-        >
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-        </select>
+        <label for="create-labels">Labels:</label>
+        <input type="text" id="create-labels" required />
 
-        <label for="create-image">Image:</label>
+        <label for="create-website">Website link:</label>
+        <input type="text" id="create-website" required />
+
+        <label for="create-image">Image Link:</label>
         <input type="text" id="create-image" required />
 
-        <label for="create-link">Link:</label>
-        <input type="url" id="create-link" required />
+        <label for="create-spotify">Spotify Embed Link:</label>
+        <input type="text" id="create-spotify" />
 
-        <label for="create-code-snippet">Code Snippet:</label>
+        <label for="create-description">Description:</label>
         <!-- <input type="text" id="create-code-snippet" required /> -->
-        <textarea id="create-code-snippet" required></textarea>
-        <div>
-          <button type="button" id="create-flashcard-btn-cancel">Cancel</button>
-          <button type="submit" id="create-flashcard-btn-save">Save</button>
+        <textarea id="create-description" required></textarea>
+        <div id="create-buttons-container">
+          <button class="buttons" type="button" id="create-artist-btn-cancel">
+            Cancel
+          </button>
+          <button class="buttons" type="submit" id="create-artist-btn-save">
+            Save
+          </button>
         </div>
       </form>
     </dialog>
+   <!--------- DIALOG READ --------->
+    <dialog id="dialog-read">
+      <div id="dialog-read-header">
+        <form method="dialog">
+          <button id="close-btn" style="text-align: left;">&#10006</button>
+      </form>
+      </div>
+      <section id="dialog-grid">
+        <img  id="artist-image" src="" alt="">
+        <section id="artist-info">
+          <h2 id="artist-name"></h2>
+          <p id="artist-birthdate"></p>
+          <p id="artist-activeSince"></p>
+          <p id="artist-genres"></p>
+          <p id="artist-labels"></p>
+          <p id="artist-website"></p>
+        </section>
+      </section>
+      <p id="artist-shortDescription"></p>
+      <iframe
+        id="spotify-link"
+        style="border-radius: 12px"
+        src=""
+        width="100%"
+        height="152"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+        loading="lazy"
+        ></iframe>
+        <p style="font-size: x-small; text-align: center;">Sign in to your Spotify account to enjoy full-length songs.</p>
+        <section id="buttons-artist">
+          <button class="buttons" id="delete-artist">DELETE ARTISTS</button>
+          <button class="buttons" id="update-artist">UPDATE INFO</button>
+        </section>
+    </dialog>
+      <!--------- DIALOG DELETE --------->
+    <dialog id="dialog-delete">
+      <h2 id="dialog-delete-name"></h2>
+      <section class="dialog-grid">
+        <h2 class="dialog-delete-question">Do you want to delete the artist from the library?</h2>
+      </section>
+        <form method="dialog" id="form-delete">
+            <button class="buttons" type="button" id="delete-btn-cancel">No</button>
+            <button class="buttons" type="submit" id="delete-btn-submit">Yes</button>
+        </form>
+    </dialog>
+       <!--------- DIALOG UPDATE --------->
+       <dialog id="dialog-update">
+            <h2>Opdater stamoplysninger</h2>
+
+          <form id="update-form">
+        <label for="update-name">Artist name:</label>
+        <input type="text" id="update-name" required />
+
+        <label for="update-dob">Date of birth:</label>
+        <input type="text" id="update-dob" required />
+
+        <label for="update-active">Active since:</label>
+        <input type="text" id="update-active" required />
+
+        <label for="update-genres">Genres:</label>
+        <input type="text" id="update-genres" required />
+        <!-- <select id="update-genres" name="genres" class="dropdown-menu" required>
+          <option value="Pop">Pop</option>
+          <option value="R&B">R&B</option>
+          <option value="Rap">Rap</option>
+        </select> -->
+
+        <label for="update-labels">Labels:</label>
+        <input type="text" id="update-labels" required />
+
+        <!-- <select id="update-labels" name="labels" class="dropdown-menu" required>
+          <option value="Def Jam">Def Jam</option> -->
+
+        </select>
+
+        <label for="update-website">Website link:</label>
+        <input type="text" id="update-website" required />
+
+        <label for="update-image">Image Link:</label>
+        <input type="text" id="update-image" required />
+
+        <label for="update-spotify">Spotify Embed Link:</label>
+        <input type="text" id="update-spotify" />
+
+        <label for="update-description">Description:</label>
+        <!-- <input type="text" id="update-code-snippet" required /> -->
+        <textarea id="update-description" required></textarea>
+        <div id="update-buttons-container">
+          <button class="buttons" type="button" id="update-artist-btn-cancel">
+            Cancel
+          </button>
+          <button class="buttons" type="submit" id="update-artist-btn-save">
+            Save
+          </button>
+        </div>
+      </form>
     <script src="app.js" type="module"></script>
   </body>
 </html>
