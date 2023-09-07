@@ -21,10 +21,6 @@ async function initApp() {
   document
     .querySelector("#showall-btn")
     .addEventListener("click", updateArtistsGrid);
+  document.querySelector("#sort").addEventListener("change", updateArtistsGrid);
   updateArtistsGrid();
-  // promptCookiesDialog();
 }
-
-// function promptCookiesDialog() {
-//   document.querySelector("#cookies-dialog").showModal();
-// }

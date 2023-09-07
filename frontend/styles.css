@@ -141,7 +141,7 @@ h1 {
 
 #dialog-grid {
   display: grid;
-  grid-template-columns: 20em 20em;
+  grid-template-columns: 1fr 1fr;
   gap: 1em;
   padding: 1em;
   margin: auto;
@@ -286,7 +286,7 @@ select {
     grid-template-columns: 1fr 1fr;
   }
   dialog {
-    width: 80vw;
+    width: 100vw;
   }
   #banner {
     width: 80%;
@@ -307,7 +307,7 @@ select {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   dialog {
-    width: 50vw;
+    width: 60vw;
   }
   #banner {
     width: 40%;
@@ -318,7 +318,7 @@ select {
     grid-template-columns: 1fr 1fr 1fr;
   }
   dialog {
-    width: 40vw;
+    width: 60vw;
   }
   #banner {
     width: 35%;
@@ -327,5 +327,8 @@ select {
 @media (min-width: 1500px) {
   #grid {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  dialog {
+    width: 50vw;
   }
 }

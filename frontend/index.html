@@ -32,45 +32,33 @@
     <button id="showall-btn" class="hidden">
       <i class="fa fa-music" style="color: #1db954"></i> SHOW ALL
     </button>
-    <select name="filter" id="filter">
+    <!-- <select name="filter" id="filter">
       <option value="" selected>--Filter by genre--</option>
       <option value="label">Pop</option>
       <option value="label">Rock</option>
       <option value="label">Rap</option>
       <option value="label">R&B</option>
       <option value="label">Hip-Hop</option>
-    </select>
-    <select name="sort" id="sort">
-      <option value="" selected>--Sort by--</option>
-      <option value="-age">Age desc</option>
-      <option value="+age">Age asc</option>
-    </select>
+    </select> -->
+  
     <section id="data-txt-container">
       <!--------- SEARCH --------->
       <div id="search-container">
+        <select name="sort" id="sort">
+          <option value="" selected>--Sort by--</option>
+          <option value="-name">Name A-Z</option>
+          <option value="+name">Name Z-A</option>
+        </select>
         <input type="search" id="input-search" placeholder="Search" />
         <select name="search-prop" id="search-prop">
           <option value="name" selected>Artist name</option>
           <option value="genres">Genre</option>
-          <option value="label">Label</option>
+          <option value="labels">Label</option>
         </select>
         <button id="search-btn">
           <i class="fas fa-search" style="color: #1db954"></i>
         </button>
       </div>
-      <!-- <p>This app uses cookies!</p> -->
-      <!-- <section id="player">
-        <iframe
-          style="border-radius: 12px"
-          src="https://open.spotify.com/embed/artist/7dGJo4pcD2V6oG8kP0tJRR?utm_source=generator"
-          width="100%"
-          height="352"
-          frameborder="0"
-          allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-      </section> -->
     </section>
     <dialog id="cookies-dialog" style="text-align: center">
       <h3>Cookies</h3>

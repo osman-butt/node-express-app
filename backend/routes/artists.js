@@ -56,7 +56,6 @@ artistRouter.delete("/:id", async (req, res) => {
 });
 
 artistRouter.get("/:property/:propertyvalue", async (req, res) => {
-  console.log("/artists/:property/:propertyvalue");
   const property = req.params.property;
   const propertyValue = req.params.propertyvalue;
   const artists = await getArtists();
