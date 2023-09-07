@@ -44,20 +44,26 @@
     <section id="data-txt-container">
       <!--------- SEARCH --------->
       <div id="search-container">
-        <select name="sort" id="sort">
-          <option value="" selected>--Sort by--</option>
-          <option value="-name">Name A-Z</option>
-          <option value="+name">Name Z-A</option>
-        </select>
-        <input type="search" id="input-search" placeholder="Search" />
-        <select name="search-prop" id="search-prop">
-          <option value="name" selected>Artist name</option>
-          <option value="genres">Genre</option>
-          <option value="labels">Label</option>
-        </select>
-        <button id="search-btn">
-          <i class="fas fa-search" style="color: #1db954"></i>
-        </button>
+        <form id="search-form">
+
+          <select name="sort" id="sort">
+            <option value="" selected>--Sort by--</option>
+            <option value="-name">Name A-Z</option>
+            <option value="+name">Name Z-A</option>
+          </select>
+        
+          <input type="search" id="input-search" name="input-search" placeholder="Search" />
+          
+          <select name="searchprop" id="search-prop">
+            <option value="name" selected>Artist name</option>
+            <option value="genres">Genre</option>
+            <option value="labels">Label</option>
+          </select>
+          
+          <button id="search-btn" type="submit">
+            <i class="fas fa-search" style="color: #1db954"></i>
+          </button>
+        </form>
       </div>
     </section>
     <dialog id="cookies-dialog" style="text-align: center">

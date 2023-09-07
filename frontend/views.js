@@ -318,54 +318,97 @@ async function showFavArtist(artist) {
     .addEventListener("click", () => toggleFavArtists(article));
 }
 
-async function searchArtists() {
-  const isShowAll =
-    document.querySelector("#showall-btn").classList.toString() === "hidden";
-  const searchString = document.querySelector("#input-search").value;
-  const searchProperty = document.querySelector("#search-prop").value;
-  document.querySelector("#input-search").value = "";
-  if (isShowAll) {
-    if (searchString !== "") {
-      const searchArtists = await getSearchArtists(
-        searchProperty,
-        searchString
-      );
-      const favourites = await getFavourites();
-      console.log(favourites);
-      const favList = favourites[0].favouritesList;
-      const listOfArtists = searchArtists.map(a => ({
-        ...a,
-        isFavourite: favList.includes(a.id),
-      }));
-      showArtists(listOfArtists);
-    } else {
-      updateArtistsGrid();
-    }
-  } else {
-    if (searchString !== "") {
-      const searchArtists = await getSearchFavArtists(
-        searchProperty,
-        searchString
-      );
+// async function searchArtists() {
+//   const isShowAll =
+//     document.querySelector("#showall-btn").classList.toString() === "hidden";
+//   const searchString = document.querySelector("#input-search").value;
+//   const searchProperty = document.querySelector("#search-prop").value;
+//   document.querySelector("#input-search").value = "";
+//   if (isShowAll) {
+//     if (searchString !== "") {
+//       const searchArtists = await getSearchArtists(
+//         searchProperty,
+//         searchString
+//       );
+//       const favourites = await getFavourites();
+//       console.log(favourites);
+//       const favList = favourites[0].favouritesList;
+//       const listOfArtists = searchArtists.map(a => ({
+//         ...a,
+//         isFavourite: favList.includes(a.id),
+//       }));
+//       showArtists(listOfArtists);
+//     } else {
+//       updateArtistsGrid();
+//     }
+//   } else {
+//     if (searchString !== "") {
+//       const searchArtists = await getSearchFavArtists(
+//         searchProperty,
+//         searchString
+//       );
 
-      const listOfArtists = searchArtists.map(a => ({
-        ...a,
-        isFavourite: true,
-      }));
-      showFavArtists(listOfArtists);
-    } else {
-      updateFavouriteArtistsGrid();
-    }
+//       const listOfArtists = searchArtists.map(a => ({
+//         ...a,
+//         isFavourite: true,
+//       }));
+//       showFavArtists(listOfArtists);
+//     } else {
+//       updateFavouriteArtistsGrid();
+//     }
+//   }
+// }
+
+function getViewType() {
+  if (
+    document.querySelector("#showall-btn").classList.toString() === "hidden"
+  ) {
+    return;
   }
 }
 
-function getViewType() {
-  document.querySelector("#showall-btn").classList.toString();
+async function searchArtistsClicked(event) {
+  event.preventDefault();
+
+  const searchQuery = {
+    sort: document.querySelector("#sort").value,
+    searchText: document.querySelector("#input-search").value,
+    searchProp: document.querySelector("#search-prop").value,
+  };
+  console.log(searchQuery);
+
+  if (
+    document.querySelector("#showall-btn").classList.toString() === "hidden"
+  ) {
+    const artists = await getSearchArtists(searchQuery);
+    sortArtists(artists);
+    console.log(artists);
+    showArtists(artists);
+  } else {
+    const artists = await getSearchFavArtists(searchQuery);
+    const favouriteArtists = artists.map(artist => ({
+      ...artist,
+      isFavourite: true,
+    }));
+    sortArtists(favouriteArtists);
+    console.log(favouriteArtists);
+    showFavArtists(favouriteArtists);
+  }
+}
+
+function sortArtists(artists) {
+  if (document.querySelector("#sort").value === "-name") {
+    artists.sort(sortNameAZ);
+  } else if (document.querySelector("#sort").value === "+name") {
+    artists.sort(sortNameZA);
+  }
+  return artists;
 }
 
 export {
   updateArtistsGrid,
   openCreateDialog,
   updateFavouriteArtistsGrid,
-  searchArtists,
+  // searchArtists,
+  searchArtistsClicked,
 };

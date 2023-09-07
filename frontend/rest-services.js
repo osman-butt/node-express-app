@@ -72,26 +72,45 @@ async function removeFromFavourites(id) {
   });
 }
 
-async function getSearchArtists(searchProperty, searchString) {
-  const response = await fetch(
-    `${endpoint}/artists/${searchProperty}/${searchString}`,
-    {
-      credentials: "include",
-    }
-  );
-  const searchedArtists = await response.json();
-  return searchedArtists;
+// async function getSearchArtists(searchProperty, searchString) {
+//   const response = await fetch(
+//     `${endpoint}/artists/${searchProperty}/${searchString}`,
+//     {
+//       credentials: "include",
+//     }
+//   );
+//   const searchedArtists = await response.json();
+//   return searchedArtists;
+// }
+
+async function getSearchArtists(query) {
+  if (query.searchText !== "") {
+    const response = await fetch(
+      `${endpoint}/artists?${query.searchProp}=${query.searchText}`,
+      {
+        credentials: "include",
+      }
+    );
+    const artists = await response.json();
+    return artists;
+  }
+  const artists = await getArtists();
+  return artists;
 }
 
-async function getSearchFavArtists(searchProperty, searchString) {
-  const response = await fetch(
-    `${endpoint}/favouriteartists/${searchProperty}/${searchString}`,
-    {
-      credentials: "include",
-    }
-  );
-  const searchedArtists = await response.json();
-  return searchedArtists;
+async function getSearchFavArtists(query) {
+  if (query.searchText !== "") {
+    const response = await fetch(
+      `${endpoint}/favouriteartists?${query.searchProp}=${query.searchText}`,
+      {
+        credentials: "include",
+      }
+    );
+    const searchedArtists = await response.json();
+    return searchedArtists;
+  }
+  const artists = await getFavouriteArtists();
+  return artists;
 }
 
 async function createArtists(artist) {
