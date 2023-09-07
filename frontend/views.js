@@ -27,7 +27,22 @@ async function updateArtistsGrid() {
     ...a,
     isFavourite: favList.includes(a.id),
   }));
+  if (document.querySelector("#sort").value === "-name") {
+    listOfArtists.sort(sortNameAZ);
+  } else if (document.querySelector("#sort").value === "+name") {
+    listOfArtists.sort(sortNameZA);
+  }
   showArtists(listOfArtists);
+}
+
+function sortNameAZ(artist1, artist2) {
+  // return new Date(artist1.birthdate) - new Date(artist2.birthdate);
+  return artist1.name.localeCompare(artist2.name);
+}
+
+function sortNameZA(artist1, artist2) {
+  // return new Date(artist2.birthdate) - new Date(artist1.birthdate);
+  return artist2.name.localeCompare(artist1.name);
 }
 
 function showArtists(listOfArtists) {
@@ -103,12 +118,6 @@ function showReadDialog(artist) {
     document.querySelector("#spotify-link").offsetHeight;
     document.querySelector("#spotify-link").classList.add("hidden");
   }
-
-  console.log(
-    document.querySelector(
-      ".EmbedAudioWidget_metadataAndPlayerControlsContainer__hAT6m"
-    )
-  );
 
   document.querySelector("#dialog-read").showModal();
 
