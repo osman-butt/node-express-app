@@ -381,9 +381,16 @@ async function searchArtistsClicked(event) {
     document.querySelector("#showall-btn").classList.toString() === "hidden"
   ) {
     const artists = await getSearchArtists(searchQuery);
-    sortArtists(artists);
-    console.log(artists);
-    showArtists(artists);
+    const favourites = await getFavourites();
+    // console.log(favourites);
+    const favList = favourites[0].favouritesList;
+    const listOfArtists = artists.map(a => ({
+      ...a,
+      isFavourite: favList.includes(a.id),
+    }));
+    sortArtists(listOfArtists);
+    console.log(listOfArtists);
+    showArtists(listOfArtists);
   } else {
     const artists = await getSearchFavArtists(searchQuery);
     const favouriteArtists = artists.map(artist => ({

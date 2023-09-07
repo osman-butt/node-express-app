@@ -1,10 +1,12 @@
 import { getFavourites, saveFavourites } from "./routes/helpers.js";
+import fsSync from "fs";
 
 async function retrieveCookies(req, res, next) {
   console.log("---retrieveCookies()---");
   const cookies = req.cookies.session;
   const cookieValue = new Date().getTime();
-  if (!cookies) {
+  console.log("COOKIES:", cookies);
+  if (cookies === undefined) {
     res.cookie("session", `${cookieValue}`, {
       sameSite: "none",
       secure: true,
@@ -12,7 +14,8 @@ async function retrieveCookies(req, res, next) {
     console.log(`Saved cookievalue = ${cookieValue}`);
     await saveCookies(cookieValue);
   }
-  // console.log(cookies);
+  console.log("COOKIES:", cookies);
+  console.log("res.cookie.session:", res.cookie.session);
   next();
 }
 
@@ -24,7 +27,8 @@ async function saveCookies(cookie) {
   if (index === -1) {
     const newFavObj = { uid: cookie, favouritesList: [] };
     fav.push(newFavObj);
-    await saveFavourites(fav);
+    // await saveFavourites(fav);
+    fsSync.writeFileSync("favourites.json", JSON.stringify(fav));
   }
 }
 

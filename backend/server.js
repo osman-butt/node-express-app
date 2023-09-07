@@ -49,6 +49,9 @@ app.use("/artists", artistRouter);
 app.use("/favourites", favouritesRouter);
 app.use("/favouriteartists", favouriteArtistsRouter);
 app.use("/genres", genreRouter);
+app.all("/*", (req, res) => {
+  res.status(404).json({ message: "ressource does not exist" });
+});
 
 app.get("/", (req, res) => {
   res.send("Welcome to MusicBase API");

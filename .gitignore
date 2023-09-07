@@ -1,5 +1,4 @@
 *.pdf
 node_modules
 *.txt
-*.json
 *.log

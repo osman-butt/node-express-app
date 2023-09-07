@@ -55,18 +55,18 @@ artistRouter.delete("/:id", async (req, res) => {
   res.json(updatedArtists);
 });
 
-artistRouter.get("/:property/:propertyvalue", async (req, res) => {
-  const property = req.params.property;
-  const propertyValue = req.params.propertyvalue;
-  const artists = await getArtists();
-  console.log();
-  const filteredArtists = artists.filter(artist =>
-    typeof artist[property] === "number"
-      ? artist[property] === Number(propertyValue)
-      : artist[property].includes(propertyValue)
-  );
-  res.send(filteredArtists);
-});
+// artistRouter.get("/:property/:propertyvalue", async (req, res) => {
+//   const property = req.params.property;
+//   const propertyValue = req.params.propertyvalue;
+//   const artists = await getArtists();
+//   console.log();
+//   const filteredArtists = artists.filter(artist =>
+//     typeof artist[property] === "number"
+//       ? artist[property] === Number(propertyValue)
+//       : artist[property].includes(propertyValue)
+//   );
+//   res.send(filteredArtists);
+// });
 
 artistRouter.get("/:id", async (req, res) => {
   console.log(req.url);
