@@ -1,10 +1,12 @@
 import express from "express";
-import { getArtists, getFavourites } from "./helpers.js";
+import { getArtists, getFavourites, checkQuery } from "./helpers.js";
 
 const favouriteArtistsRouter = express.Router();
 
 favouriteArtistsRouter.get("/", async (req, res) => {
   const uid = req.cookies.session;
+  const queryObj = req.query;
+  const queryKeys = Object.keys(req.query);
   const artists = await getArtists();
   const data = await getFavourites();
   const favourites = data.filter(f => f.uid === Number(uid));
@@ -12,7 +14,12 @@ favouriteArtistsRouter.get("/", async (req, res) => {
     favourites[0].favouritesList.includes(artist.id)
   );
   console.log(favourites[0].favouritesList);
-  res.json(favArtists);
+  if (queryKeys.length === 0) {
+    res.json(favArtists);
+  } else {
+    const filteredArtists = checkQuery(favArtists, queryObj);
+    res.send(filteredArtists);
+  }
 });
 
 favouriteArtistsRouter.get("/:property/:propertyvalue", async (req, res) => {
