@@ -1,0 +1,532 @@
+[
+  {
+    "name": "Beyoncé",
+    "birthdate": "1981-09-04",
+    "activeSince": "1997-01-01",
+    "genres": ["R&B", "Pop"],
+    "labels": ["Columbia", "Parkwood Entertainment"],
+    "website": "https://www.beyonce.com",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Beyonc%C3%A9_-_Tottenham_Hotspur_Stadium_-_1st_June_2023_%286_of_118%29_%2852945304172%29_%28high_cropped%29.jpg/220px-Beyonc%C3%A9_-_Tottenham_Hotspur_Stadium_-_1st_June_2023_%286_of_118%29_%2852945304172%29_%28high_cropped%29.jpg",
+    "shortDescription": "Iconic R&B and pop artist known for her powerful vocals and captivating performances."
+  },
+  {
+    "name": "Eminem",
+    "birthdate": "1972-10-17",
+    "activeSince": "1992-01-01",
+    "genres": ["Hip-Hop", "Rap"],
+    "labels": ["Aftermath", "Shady Records"],
+    "website": "https://www.eminem.com",
+    "image": "https://i.scdn.co/image/ab6761610000e5eba00b11c129b27a88fc72f36b",
+    "shortDescription": "Legendary rapper and songwriter recognized for his unique lyrical style and introspective themes."
+  },
+  {
+    "name": "Adele",
+    "birthdate": "1988-05-05",
+    "activeSince": "2006-01-01",
+    "genres": ["Pop", "Soul"],
+    "labels": ["XL Recordings", "Columbia"],
+    "website": "https://www.adele.com",
+    "image": "adele.jpg",
+    "shortDescription": "Soulful pop artist acclaimed for her emotive voice and heartfelt ballads."
+  },
+  {
+    "name": "Coldplay",
+    "birthdate": "1977-03-02",
+    "activeSince": "1996-01-01",
+    "genres": ["Rock", "Pop"],
+    "labels": ["Parlophone", "Atlantic"],
+    "website": "https://www.coldplay.com",
+    "image": "coldplay.jpg",
+    "shortDescription": "Internationally renowned band known for their atmospheric rock sound and anthemic hits."
+  },
+  {
+    "name": "Taylor Swift",
+    "birthdate": "1989-12-13",
+    "activeSince": "2004-01-01",
+    "genres": ["Pop", "Country"],
+    "labels": ["Big Machine", "Republic"],
+    "website": "https://www.taylorswift.com",
+    "image": "taylor_swift.jpg",
+    "shortDescription": "Multi-genre artist recognized for her narrative songwriting and chart-topping hits."
+  },
+  {
+    "name": "Kendrick Lamar",
+    "birthdate": "1987-06-17",
+    "activeSince": "2003-01-01",
+    "genres": ["Hip-Hop", "Rap"],
+    "labels": ["Top Dawg", "Interscope"],
+    "website": "https://www.kendricklamar.com",
+    "image": "kendrick_lamar.jpg",
+    "shortDescription": "Influential rapper known for his socially conscious lyrics and innovative sound."
+  },
+  {
+    "name": "Rihanna",
+    "birthdate": "1988-02-20",
+    "activeSince": "2003-01-01",
+    "genres": ["Pop", "R&B"],
+    "labels": ["Def Jam", "Roc Nation"],
+    "website": "https://www.rihannanow.com",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Rihanna_Fenty_2018.png/220px-Rihanna_Fenty_2018.png",
+    "shortDescription": "Chart-topping pop and R&B artist known for her versatile musical style and fashion influence."
+  },
+  {
+    "name": "Justin Timberlake",
+    "birthdate": "1981-01-31",
+    "activeSince": "1995-01-01",
+    "genres": ["Pop", "R&B"],
+    "labels": ["Jive", "RCA"],
+    "website": "https://www.justintimberlake.com",
+    "image": "justin_timberlake.jpg",
+    "shortDescription": "Singer-songwriter and entertainer celebrated for his pop and R&B hits as well as acting career."
+  },
+  {
+    "name": "Ariana Grande",
+    "birthdate": "1993-06-26",
+    "activeSince": "2008-01-01",
+    "genres": ["Pop", "R&B"],
+    "labels": ["Republic"],
+    "website": "https://www.arianagrande.com",
+    "image": "ariana_grande.jpg",
+    "shortDescription": "Vocal powerhouse with a successful career in pop music, known for her impressive vocal range."
+  },
+  {
+    "name": "Ed Sheeran",
+    "birthdate": "1991-02-17",
+    "activeSince": "2004-01-01",
+    "genres": ["Pop", "Folk", "Acoustic"],
+    "labels": ["Asylum", "Atlantic"],
+    "website": "https://www.edsheeran.com",
+    "image": "ed_sheeran.jpg",
+    "shortDescription": "Singer-songwriter and guitarist recognized for his heartfelt ballads and folk-pop sound."
+  },
+  {
+    "name": "Lady Gaga",
+    "birthdate": "1986-03-28",
+    "activeSince": "2005-01-01",
+    "genres": ["Pop", "Dance", "Electronic"],
+    "labels": ["Interscope"],
+    "website": "https://www.ladygaga.com",
+    "image": "lady_gaga.jpg",
+    "shortDescription": "Boundary-pushing artist known for her eccentric style, powerful vocals, and pop anthems."
+  },
+  {
+    "name": "Drake",
+    "birthdate": "1986-10-24",
+    "activeSince": "2001-01-01",
+    "genres": ["Hip-Hop", "Rap"],
+    "labels": ["OVO Sound", "Republic"],
+    "website": "https://www.drakeofficial.com",
+    "image": "drake.jpg",
+    "shortDescription": "Rapper, singer, and songwriter with numerous chart-topping hits and a dominant presence in hip-hop."
+  },
+  {
+    "name": "Katy Perry",
+    "birthdate": "1984-10-25",
+    "activeSince": "2001-01-01",
+    "genres": ["Pop"],
+    "labels": ["Capitol"],
+    "website": "https://www.katyperry.com",
+    "image": "katy_perry.jpg",
+    "shortDescription": "Colorful pop artist known for her energetic performances and catchy pop singles."
+  },
+  {
+    "name": "The Weeknd",
+    "birthdate": "1990-02-16",
+    "activeSince": "2010-01-01",
+    "genres": ["R&B", "Pop"],
+    "labels": ["XO", "Republic"],
+    "website": "https://www.theweeknd.com",
+    "image": "the_weeknd.jpg",
+    "shortDescription": "Alternative R&B artist with a distinct voice and a blend of pop and electronic influences."
+  },
+  {
+    "name": "Bruno Mars",
+    "birthdate": "1985-10-08",
+    "activeSince": "2004-01-01",
+    "genres": ["Pop", "R&B", "Funk"],
+    "labels": ["Atlantic"],
+    "website": "https://www.brunomars.com",
+    "image": "bruno_mars.jpg",
+    "shortDescription": "Versatile artist known for his dynamic performances, soulful vocals, and genre-blending hits."
+  },
+  {
+    "name": "Billie Eilish",
+    "birthdate": "2001-12-18",
+    "activeSince": "2015-01-01",
+    "genres": ["Pop", "Electropop"],
+    "labels": ["Darkroom", "Interscope"],
+    "website": "https://www.billieeilish.com",
+    "image": "billie_eilish.jpg",
+    "shortDescription": "Eccentric pop artist celebrated for her unique style, whispery vocals, and introspective lyrics."
+  },
+  {
+    "name": "Jay-Z",
+    "birthdate": "1969-12-04",
+    "activeSince": "1996-01-01",
+    "genres": ["Hip-Hop", "Rap"],
+    "labels": ["Roc-A-Fella", "Roc Nation"],
+    "website": "https://www.rocnation.com",
+    "image": "jay_z.jpg",
+    "shortDescription": "Influential rapper, entrepreneur, and record producer with a career spanning decades."
+  },
+  {
+    "name": "Linkin Park",
+    "birthdate": "1996-03-10",
+    "activeSince": "2000-01-01",
+    "genres": ["Rock", "Alternative"],
+    "labels": ["Warner Bros."],
+    "website": "https://www.linkinpark.com",
+    "image": "linkin_park.jpg",
+    "shortDescription": "Rock band known for blending rock and rap elements, delivering emotional performances."
+  },
+  {
+    "name": "Shakira",
+    "birthdate": "1977-02-02",
+    "activeSince": "1990-01-01",
+    "genres": ["Pop", "Latin"],
+    "labels": ["Sony Latin", "RCA"],
+    "website": "https://www.shakira.com",
+    "image": "shakira.jpg",
+    "shortDescription": "Colombian singer-songwriter and dancer recognized for her pop and Latin music fusion."
+  },
+  {
+    "name": "Maroon 5",
+    "birthdate": "1979-03-18",
+    "activeSince": "1994-01-01",
+    "genres": ["Pop", "Rock"],
+    "labels": ["222", "Interscope"],
+    "website": "https://www.maroon5.com",
+    "image": "maroon_5.jpg",
+    "shortDescription": "Pop-rock band celebrated for catchy melodies, smooth vocals, and radio-friendly hits."
+  },
+  {
+    "name": "Usher",
+    "birthdate": "1978-10-14",
+    "activeSince": "1991-01-01",
+    "genres": ["R&B", "Pop"],
+    "labels": ["Arista", "RCA"],
+    "website": "https://www.usherworld.com",
+    "image": "usher.jpg",
+    "shortDescription": "R&B artist known for his smooth vocals, dynamic performances, and hit singles."
+  },
+  {
+    "name": "Green Day",
+    "birthdate": "1972-02-17",
+    "activeSince": "1986-01-01",
+    "genres": ["Rock", "Punk"],
+    "labels": ["Reprise"],
+    "website": "https://www.greenday.com",
+    "image": "green_day.jpg",
+    "shortDescription": "Rock band recognized for their punk energy, anthemic rock tracks, and social commentary."
+  },
+  {
+    "name": "Nicki Minaj",
+    "birthdate": "1982-12-08",
+    "activeSince": "2004-01-01",
+    "genres": ["Hip-Hop", "Rap"],
+    "labels": ["Young Money", "Republic"],
+    "website": "https://www.mypinkfriday.com",
+    "image": "nicki_minaj.jpg",
+    "shortDescription": "Versatile rapper and songwriter known for her colorful personas and rapid-fire lyrics."
+  },
+  {
+    "name": "John Legend",
+    "birthdate": "1978-12-28",
+    "activeSince": "2000-01-01",
+    "genres": ["R&B", "Soul"],
+    "labels": ["Columbia", "GOOD Music"],
+    "website": "https://www.johnlegend.com",
+    "image": "john_legend.jpg",
+    "shortDescription": "Singer-songwriter and pianist celebrated for his soulful voice and poignant lyrics."
+  },
+  {
+    "name": "Alicia Keys",
+    "birthdate": "1981-01-25",
+    "activeSince": "2000-01-01",
+    "genres": ["R&B", "Soul"],
+    "labels": ["RCA"],
+    "website": "https://www.aliciakeys.com",
+    "image": "alicia_keys.jpg",
+    "shortDescription": "Pianist and vocalist known for her soulful R&B sound and empowering songs."
+  },
+  {
+    "name": "Imagine Dragons",
+    "birthdate": "1987-07-02",
+    "activeSince": "2008-01-01",
+    "genres": ["Rock", "Pop"],
+    "labels": ["Interscope", "Kidinakorner"],
+    "website": "https://www.imaginedragonsmusic.com",
+    "image": "imagine_dragons.jpg",
+    "shortDescription": "Alternative rock band with energetic performances and a mix of rock and pop elements."
+  },
+  {
+    "name": "Evanescence",
+    "birthdate": "1995-12-08",
+    "activeSince": "1995-01-01",
+    "genres": ["Rock", "Alternative"],
+    "labels": ["Wind-up", "BMG"],
+    "website": "https://www.evanescence.com",
+    "image": "evanescence.jpg",
+    "shortDescription": "Rock band known for their haunting vocals, orchestral elements, and emotional rock sound."
+  },
+  {
+    "name": "Sia",
+    "birthdate": "1975-12-18",
+    "activeSince": "1997-01-01",
+    "genres": ["Pop", "Electropop"],
+    "labels": ["Monkey Puzzle", "Atlantic"],
+    "website": "https://siamusic.net",
+    "image": "sia.jpg",
+    "shortDescription": "Singer-songwriter with a distinctive voice, known for her pop hits and powerful performances."
+  },
+  {
+    "name": "Avicii",
+    "birthdate": "1989-09-08",
+    "activeSince": "2007-01-01",
+    "genres": ["Electronic", "Dance"],
+    "labels": ["PRMD", "Universal"],
+    "website": "https://www.avicii.com",
+    "image": "avicii.jpg",
+    "shortDescription": "Swedish DJ and producer recognized for his pioneering contributions to electronic dance music."
+  },
+  {
+    "name": "Kanye West",
+    "birthdate": "1977-06-08",
+    "activeSince": "1996-01-01",
+    "genres": ["Hip-Hop", "Rap"],
+    "labels": ["GOOD Music", "Def Jam"],
+    "website": "https://www.kanyewest.com",
+    "image": "kanye_west.jpg",
+    "shortDescription": "Innovative rapper, producer, and fashion designer with a significant impact on hip-hop culture."
+  },
+  {
+    "name": "Twenty One Pilots",
+    "birthdate": "1988-12-01",
+    "activeSince": "2009-01-01",
+    "genres": ["Pop", "Rock"],
+    "labels": ["Fueled by Ramen"],
+    "website": "https://www.twentyonepilots.com",
+    "image": "twenty_one_pilots.jpg",
+    "shortDescription": "Duo known for blending various genres like pop, rock, and electronic, and exploring emotional themes."
+  },
+  {
+    "name": "Gorillaz",
+    "birthdate": "1998-06-15",
+    "activeSince": "1998-01-01",
+    "genres": ["Alternative", "Electronic"],
+    "labels": ["Parlophone", "Warner Bros."],
+    "website": "https://www.gorillaz.com",
+    "image": "gorillaz.jpg",
+    "shortDescription": "Virtual band combining animated visuals with a diverse musical style, from rock to electronica."
+  },
+  {
+    "name": "Lorde",
+    "birthdate": "1996-11-07",
+    "activeSince": "2012-01-01",
+    "genres": ["Pop", "Electropop"],
+    "labels": ["Universal", "Lava"],
+    "website": "https://www.lorde.co.nz",
+    "image": "lorde.jpg",
+    "shortDescription": "Singer-songwriter known for her unique voice, introspective lyrics, and electropop sound."
+  },
+  {
+    "name": "Florence + The Machine",
+    "birthdate": "1986-08-28",
+    "activeSince": "2007-01-01",
+    "genres": ["Indie", "Rock"],
+    "labels": ["Island", "Republic"],
+    "website": "https://www.florenceandthemachine.net",
+    "image": "florence_and_the_machine.jpg",
+    "shortDescription": "Indie rock band fronted by Florence Welch, known for their ethereal sound and emotive performances."
+  },
+  {
+    "name": "P!nk",
+    "birthdate": "1979-09-08",
+    "activeSince": "2000-01-01",
+    "genres": ["Pop", "Rock"],
+    "labels": ["LaFace", "RCA"],
+    "website": "https://www.pinkspage.com",
+    "image": "pink.jpg",
+    "shortDescription": "Singer-songwriter with a blend of pop and rock elements, celebrated for her powerful voice."
+  },
+  {
+    "name": "Michael Jackson",
+    "birthdate": "1958-08-29",
+    "activeSince": "1964-01-01",
+    "genres": ["Pop", "R&B"],
+    "labels": ["Epic"],
+    "website": "https://www.michaeljackson.com",
+    "image": "michael_jackson.jpg",
+    "shortDescription": "The King of Pop known for his unparalleled contributions to music, dance, and entertainment."
+  },
+  {
+    "name": "Nirvana",
+    "birthdate": "1987-01-01",
+    "activeSince": "1987-01-01",
+    "genres": ["Rock", "Grunge"],
+    "labels": ["DGC", "Sub Pop"],
+    "website": "https://www.nirvana.com",
+    "image": "nirvana.jpg",
+    "shortDescription": "Grunge band led by Kurt Cobain, leaving a lasting impact on rock music and culture."
+  },
+  {
+    "name": "Madonna",
+    "birthdate": "1958-08-16",
+    "activeSince": "1979-01-01",
+    "genres": ["Pop", "Dance"],
+    "labels": ["Sire", "Warner Bros."],
+    "website": "https://www.madonna.com",
+    "image": "madonna.jpg",
+    "shortDescription": "Pop icon known for her boundary-pushing music, visual style, and cultural influence."
+  },
+  {
+    "name": "Tupac Shakur",
+    "birthdate": "1971-06-16",
+    "activeSince": "1989-01-01",
+    "genres": ["Hip-Hop", "Rap"],
+    "labels": ["Death Row", "Interscope"],
+    "website": "https://www.2pac.com",
+    "image": "tupac_shakur.jpg",
+    "shortDescription": "Influential rapper and actor remembered for his introspective lyrics and social commentary."
+  },
+  {
+    "name": "Whitney Houston",
+    "birthdate": "1963-08-09",
+    "activeSince": "1985-01-01",
+    "genres": ["Pop", "R&B"],
+    "labels": ["Arista"],
+    "website": "https://www.whitneyhouston.com",
+    "image": "whitney_houston.jpg",
+    "shortDescription": "Renowned vocalist with a powerful voice, known for her iconic ballads and pop hits."
+  },
+  {
+    "name": "Pearl Jam",
+    "birthdate": "1990-10-22",
+    "activeSince": "1990-10-22",
+    "genres": ["Rock", "Grunge"],
+    "labels": ["Epic"],
+    "website": "https://www.pearljam.com",
+    "image": "pearl_jam.jpg",
+    "shortDescription": "Grunge band celebrated for their emotional intensity and impactful live performances."
+  },
+  {
+    "name": "Mariah Carey",
+    "birthdate": "1969-03-27",
+    "activeSince": "1988-01-01",
+    "genres": ["Pop", "R&B"],
+    "labels": ["Columbia", "Virgin"],
+    "website": "https://www.mariahcarey.com",
+    "image": "mariah_carey.jpg",
+    "shortDescription": "Vocal powerhouse known for her impressive vocal range and chart-topping ballads."
+  },
+  {
+    "name": "Red Hot Chili Peppers",
+    "birthdate": "1983-01-01",
+    "activeSince": "1983-01-01",
+    "genres": ["Rock", "Funk"],
+    "labels": ["Warner Bros."],
+    "website": "https://www.redhotchilipeppers.com",
+    "image": "red_hot_chili_peppers.jpg",
+    "shortDescription": "Rock band fusing rock, funk, and punk elements, delivering energetic and anthemic tracks."
+  },
+  {
+    "name": "Alanis Morissette",
+    "birthdate": "1974-06-01",
+    "activeSince": "1987-01-01",
+    "genres": ["Rock", "Alternative"],
+    "labels": ["Maverick", "Warner Bros."],
+    "website": "https://www.alanis.com",
+    "image": "alanis_morissette.jpg",
+    "shortDescription": "Singer-songwriter known for her emotive lyrics and influential album 'Jagged Little Pill'."
+  },
+  {
+    "name": "R.E.M.",
+    "birthdate": "1980-01-01",
+    "activeSince": "1980-01-01",
+    "genres": ["Rock", "Alternative"],
+    "labels": ["IRS", "Warner Bros."],
+    "website": "https://remhq.com",
+    "image": "rem.jpg",
+    "shortDescription": "Alternative rock band with a distinctive sound and impact on the '90s music scene."
+  },
+  {
+    "name": "Prince",
+    "birthdate": "1958-06-07",
+    "activeSince": "1976-01-01",
+    "genres": ["Pop", "Funk", "R&B"],
+    "labels": ["Warner Bros."],
+    "website": "https://www.prince.com",
+    "image": "prince.jpg",
+    "shortDescription": "Iconic musician known for his genre-blurring music, flamboyant style, and virtuosity."
+  },
+  {
+    "name": "Queen",
+    "birthdate": "1970-07-13",
+    "activeSince": "1970-07-13",
+    "genres": ["Rock"],
+    "labels": ["EMI", "Parlophone"],
+    "website": "https://www.queenonline.com",
+    "image": "queen.jpg",
+    "shortDescription": "Legendary rock band fronted by Freddie Mercury, creating anthemic and diverse rock music."
+  },
+  {
+    "name": "U2",
+    "birthdate": "1976-09-25",
+    "activeSince": "1976-09-25",
+    "genres": ["Rock"],
+    "labels": ["Island"],
+    "website": "https://www.u2.com",
+    "image": "u2.jpg",
+    "shortDescription": "Irish rock band with a socially conscious approach and enduring anthems."
+  },
+  {
+    "name": "David Bowie",
+    "birthdate": "1947-01-08",
+    "activeSince": "1962-01-01",
+    "genres": ["Rock", "Pop"],
+    "labels": ["RCA", "Virgin"],
+    "website": "https://www.davidbowie.com",
+    "image": "david_bowie.jpg",
+    "shortDescription": "Innovative musician known for his chameleon-like persona and artistic evolution."
+  },
+  {
+    "name": "Metallica",
+    "birthdate": "1981-10-28",
+    "activeSince": "1981-10-28",
+    "genres": ["Metal"],
+    "labels": ["Elektra", "Blackened"],
+    "website": "https://www.metallica.com",
+    "image": "metallica.jpg",
+    "shortDescription": "Pioneering heavy metal band known for their aggressive sound and impactful performances."
+  },
+  {
+    "name": "Tina Turner",
+    "birthdate": "1939-11-26",
+    "activeSince": "1957-01-01",
+    "genres": ["Rock", "Pop"],
+    "labels": ["Capitol", "Parlophone"],
+    "website": "https://www.tinaturnerofficial.com",
+    "image": "tina_turner.jpg",
+    "shortDescription": "Singer and actress with a powerful voice, known for her dynamic performances."
+  },
+  {
+    "name": "Guns N' Roses",
+    "birthdate": "1985-06-06",
+    "activeSince": "1985-06-06",
+    "genres": ["Rock", "Hard Rock"],
+    "labels": ["Geffen"],
+    "website": "https://www.gunsnroses.com",
+    "image": "guns_n_roses.jpg",
+    "shortDescription": "Hard rock band recognized for their energetic stage presence and iconic hits."
+  },
+  {
+    "name": "Billy Joel",
+    "birthdate": "1949-05-09",
+    "activeSince": "1971-01-01",
+    "genres": ["Rock", "Pop"],
+    "labels": ["Columbia"],
+    "website": "https://www.billyjoel.com",
+    "image": "billy_joel.jpg",
+    "shortDescription": "Singer-songwriter and pianist known for his storytelling through rock and pop music."
+  }
+]
